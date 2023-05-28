@@ -5,7 +5,7 @@ import useLocalStorage from '../../common/hooks/useLocalStorage';
 import useCounter from './hooks/useCounter';
 import localStorageKeys from '../../config/localSotrageKeys';
 
-const Home = () => {
+const Test = () => {
     
     const { count, increment, decrement } = useCounter(0, 1);
     const { data, loading, error } = useAxiosGet('https://api.example.com/data');
@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
         <>
-            <h1>Home</h1>
+            <h1>Test</h1>
             <div>
                 <h1>Counter: {count}</h1>
                 <Button_Bootstrap 
@@ -50,4 +50,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Test
