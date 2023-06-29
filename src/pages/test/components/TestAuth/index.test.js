@@ -1,12 +1,16 @@
 import React from 'react';
-import { Button_Bootstrap } from '../../common/components/Ui/Buttons';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { Button_Bootstrap } from '../../../../common/components/Ui/Buttons';
+import Domains from '../../../../config/domains';
+
+const backendURI = Domains.backend;
+
 
 const TestAuth = () => {
 
     const register = () => {
-        axios.post('http://localhost:9000/auth/register', {
+        axios.post(`${backendURI}/auth/register`, {
             "data": {
                 "username": "myusername",
                 "firstname": "myname",
@@ -26,14 +30,13 @@ const TestAuth = () => {
     const testAuth = () => {
         const cookieValue = Cookies.get('authorization');    
 
-        axios.get('http://localhost:9000/auth/testAuth', {headers: {
+        axios.get(`${backendURI}/auth/testAuth`, {headers: {
             "authorization": cookieValue
         }}).catch(err=>console.error(err))
     }
 
     return (
         <>
-            <h1>Test Auth</h1>
             <div>
                 <Button_Bootstrap 
                     text={'Register'}
