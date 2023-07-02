@@ -1,8 +1,8 @@
 import React from 'react';
-import TestLocalStorage from './components/TestHooks/LocalStorage/index.test';
-import TestSessionStorage from './components/TestHooks/SessionStorage/index.test';
-import TestCookies from './components/TestHooks/Cookies/index.test';
-import TestAuth from './components/TestAuth/index.test';
+import TestLocalStorage from './components/TestHooks/LocalStorage/index.jsx';
+import TestSessionStorage from './components/TestHooks/SessionStorage/index.jsx';
+import TestCookies from './components/TestHooks/Cookies/index.jsx';
+import TestAuth from './components/TestAuth/index.jsx';
 
 
 const Test = () => {
