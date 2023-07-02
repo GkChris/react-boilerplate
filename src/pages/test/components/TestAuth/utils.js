@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import Domains from "../../../../config/domains";
 import { get_testAuth, post_login, post_logout, post_register } from "./requests";
 
@@ -50,16 +49,9 @@ export const login = () => {
 
 
 export const logout = () => {  
-    const cookieValue = Cookies.get('authorization');   
-
     const url = `${backendURI}/auth/logout`;
     const body = {};
-    const options = {
-        headers: {
-          "authorization": cookieValue
-        },
-        withCredentials: true
-    }
+    const options = { withCredentials: true }
     
     post_logout(url, body, options)
         .then((res) => console.log('res',res))
@@ -68,15 +60,9 @@ export const logout = () => {
 
 
 export const testAuth = () => {
-    const cookieValue = Cookies.get('authorization');    
-
     const url = `${backendURI}/auth/testAuth`;
-    const options = { headers: {
-        "authorization": cookieValue
-    }};
-    const params = {};
 
-    get_testAuth(url, options, params)
+    get_testAuth(url)
         .then((res) => console.log('res',res))
         .catch((err) => console.error(err));
 }

@@ -4,8 +4,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AppRouter from './setup/router';
+import { ReqInterceptor, ResInterceptor } from './helpers/interceptor';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+ReqInterceptor();
+ResInterceptor();
+
+
 root.render(
   <React.StrictMode>
     <AppRouter />
