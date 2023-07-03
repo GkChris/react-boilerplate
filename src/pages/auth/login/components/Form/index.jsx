@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { login } from '../../../../../setup/authentication/requests';
+
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -19,6 +21,10 @@ function LoginForm() {
     // Perform login logic here with email and password
     console.log('Email:', email);
     console.log('Password:', password);
+
+    const credentials = {email, password};
+
+    login(credentials);
   };
 
   return (
