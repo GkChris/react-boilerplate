@@ -7,9 +7,9 @@ const useCookies = (key, initialValue) => {
 		return cookieValue ? JSON.parse(cookieValue) : initialValue;
 	});
 
-	// useEffect(() => {
-	// 		Cookies.set(key, JSON.stringify(value)); // Update the cookie whenever the value changes
-	// }, [key, value]);
+	useEffect(() => {
+			Cookies.set(key, JSON.stringify(value)); // Update the cookie whenever the value changes
+	}, [key, value]);
 
 	const updateValue = (newValue) => {
 		setValue(newValue);

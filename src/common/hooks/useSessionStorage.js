@@ -6,9 +6,9 @@ const useSessionStorage = (key, initialValue) => {
         return sessionStorageValue ? JSON.parse(sessionStorageValue) : initialValue;
     });
 
-    // useEffect(() => {
-    //    sessionStorage.setItem(key, JSON.stringify(value));
-    // }, [key, value]);
+    useEffect(() => {
+       sessionStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
 
     const updateValue = (newValue) => {
         setValue(newValue);
