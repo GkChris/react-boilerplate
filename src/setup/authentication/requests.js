@@ -3,6 +3,7 @@ import Domains from "../../config/domains";
 
 const backendURI = Domains.backend;
 
+// For ids check the appConfig. Request to fetch and store the ids by name will be handled in interceptors later on
 
 export const register = (payload) => {
     return new Promise((resolve, reject) => {

@@ -14,7 +14,7 @@ export const register = () => {
             "lastname": "myusername",
             "email": "myusername@gmail.com",
             "phone": "myusername",
-            "phone_code": "+30",
+            "phone_code": "30",
             "roleId": "649a9102cac7f1d201aa785a",
             "realmId": "649a9102cac7f1d201aa7853",
             "clientId": "649a9102cac7f1d201aa7855",
