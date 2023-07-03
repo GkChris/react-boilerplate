@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import BrowserDatabaseKeys from '../config/browserDatabaseKeys';
 
 
 export const ReqInterceptor = () => {
@@ -14,7 +15,7 @@ export const ReqInterceptor = () => {
 
 export const ResInterceptor = () => {
     axios.interceptors.response.use((res) => {
-        if ( res.data?.data?.user ) sessionStorage.setItem('key', JSON.stringify(res.data.data.user));
+        if ( res.data?.data?.user ) sessionStorage.setItem(BrowserDatabaseKeys.sessionStorage.user, JSON.stringify(res.data.data.user));
         return res;
     })
 };  

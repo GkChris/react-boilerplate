@@ -4,6 +4,7 @@ const BrowserDatabaseKeys = {
     },
     sessionStorage: {
         myKey: "myKey",
+        user: "user",
     },
     cookies: {
         myKey: "myKey",
