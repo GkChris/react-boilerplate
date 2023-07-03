@@ -5,7 +5,7 @@ import BrowserDatabaseKeys from '../../../../../config/browserDatabaseKeys';
 
 const TestLocalStorage = () => {
     
-    const [value, setValue] = useLocalStorage(BrowserDatabaseKeys.localStorage.myKey, 'Default Value');
+    const [value, setValue] = useLocalStorage(BrowserDatabaseKeys.localStorage.myKey, 'initialValue');
     
     return (
         <>

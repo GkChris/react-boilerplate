@@ -5,7 +5,7 @@ import BrowserDatabaseKeys from '../../../../../config/browserDatabaseKeys';
 
 const TestSessionStorage = () => {
     
-    const [value, setValue] = useSessionStorage(BrowserDatabaseKeys.sessionStorage.myKey, 'Default Value');
+    const [value, setValue] = useSessionStorage(BrowserDatabaseKeys.sessionStorage.myKey, 'initialValue');
     
     return (
         <>
