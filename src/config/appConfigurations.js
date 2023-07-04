@@ -1,5 +1,8 @@
-const appConfig = {
+const AppConfig = {
     realm: "Development",
     client: "Main", 
-    basic_role_code: "user",
+    user_role_code: "user",
 }
+
+
+export default AppConfig

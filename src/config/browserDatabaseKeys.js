@@ -3,7 +3,9 @@ const BrowserDatabaseKeys = {
         myKey: "myKey",
     },
     sessionStorage: {
-        myKey: "myKey",
+        realmId: "realmId",
+        clientId: "clientId",
+        user_roleId: "user_roleId",
         user: "user",
     },
     cookies: {
