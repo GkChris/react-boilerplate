@@ -46,6 +46,16 @@ export const logout = (payload) => {
     })
 }
 
+
+export const verify = () => {
+    return new Promise((resolve, reject) => {
+        const url = `${backendURI}/auth/verify`;
+        axios.get(url)
+            .then((res) => resolve(res))
+            .catch((err) => reject(err))
+    })
+}
+
 export const testAuth = () => {
     return new Promise((resolve, reject) => {
         const url = `${backendURI}/auth/testAuth`;

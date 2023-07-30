@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Guard } from "../authentication/guard";
 
 import Example from "../../pages/example";
 import Test from "../../pages/test";
@@ -24,7 +25,7 @@ const AppRouter = () => {
                 <Route path="/register" element={<Register />} />
 
                 { /* Protected */ }
-                <Route path="/protected" element={<Protected_Page />} />
+                <Route path="/protected" element={<Guard><Protected_Page /></Guard>} />
             </Routes>
         </Router>
     );
