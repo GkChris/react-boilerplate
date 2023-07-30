@@ -6,7 +6,12 @@ import Domains from '../config/domains';
 const AuthURI = Domains.auth;
 
 export const InitilizeSessionStorage = async () => {
+    await fetch_authServer_related_ids();
+}
 
+
+
+const fetch_authServer_related_ids = async () => {
     try {
 
         const storedRealmId = sessionStorage.getItem(BrowserDatabaseKeys.sessionStorage.realmId);
@@ -21,9 +26,9 @@ export const InitilizeSessionStorage = async () => {
 
         const responses = await Promise.all([realmRequest, clientRequest, roleRequest]);
 
-        const realmResponse = responses[0]?.data?.data;
-        const clientResponse = responses[1]?.data?.data;
-        const roleResponse = responses[2]?.data?.data;
+        const realmResponse = responses[0]?.data?.data?.realms;
+        const clientResponse = responses[1]?.data?.data?.clients;
+        const roleResponse = responses[2]?.data?.data?.roles;
 
         const realmId = realmResponse && realmResponse.length > 0 ? realmResponse[0]?._id : null;
         const clientId = clientResponse && clientResponse.length > 0 ? clientResponse[0]?._id : null;
@@ -39,4 +44,3 @@ export const InitilizeSessionStorage = async () => {
         return;
     }
 }
-

@@ -6,6 +6,7 @@ import Test from "../../pages/test";
 
 import Login from "../../pages/auth/login";
 import Register from "../../pages/auth/register";
+import Protected_Page from "../../pages/protectedPage";
 
 const AppRouter = () => {
     return (
@@ -21,6 +22,9 @@ const AppRouter = () => {
                 { /* Auth */ }
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+
+                { /* Protected */ }
+                <Route path="/protected" element={<Protected_Page />} />
             </Routes>
         </Router>
     );
