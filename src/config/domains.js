@@ -1,6 +1,6 @@
 const Domains = {
-    backend: "http://localhost:9000",
-    auth: "http://localhost:38080",
+    backend: "http://127.0.0.1:9000",
+    auth: "http://127.0.0.1:38080",
 }
 
 
