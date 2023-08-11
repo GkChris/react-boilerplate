@@ -1,6 +1,6 @@
 const Domains = {
-    backend: "http://127.0.0.1:9000",
-    auth: "http://127.0.0.1:38080",
+    backend: `${process.env.BACKEND_PROTOCOL}${process.env.BACKEND_HOST}${process.env.BACKEND_PORT}`,
+    auth: `${process.env.AUTH_SERVER_PROTOCOL}${process.env.AUTH_SERVER_HOST}${process.env.AUTH_SERVER_PORT}`,
 }
 
 
