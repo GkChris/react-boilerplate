@@ -6,6 +6,8 @@ import Domains from '../config/domains';
 const AuthURI = Domains.auth;
 
 export const InitilizeSessionStorage = async () => {
+    console.log(Domains.auth);
+    console.log(Domains.backend);
     await fetch_authServer_related_ids();
 }
 
