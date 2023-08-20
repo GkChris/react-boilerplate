@@ -77,7 +77,7 @@ function RegisterForm() {
 
     const payload = {username, email, password, firstname, lastname, phone, phone_code, password};
 
-    register(payload);
+    register(payload).catch(err => console.error(err.response));
   };
 
   return (

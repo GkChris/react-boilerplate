@@ -24,7 +24,7 @@ function LoginForm() {
 
     const credentials = {email, password};
 
-    login(credentials);
+    login(credentials).catch(err => console.error(err.response));;
   };
 
   return (
