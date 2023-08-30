@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { register } from '../../../../../setup/authentication/requests';
+import { register, useAuthApi } from '../../../../../setup/authentication/requests';
 
 function RegisterForm() {
+
+  const authApi = useAuthApi();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [firstname, setfirstname] = useState('');
@@ -77,7 +80,7 @@ function RegisterForm() {
 
     const payload = {username, email, password, firstname, lastname, phone, phone_code, password};
 
-    register(payload).catch(err => console.error(err.response));
+    authApi.register(payload).catch(err => console.error(err.response));
   };
 
   return (

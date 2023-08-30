@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { login } from '../../../../../setup/authentication/requests';
+import { login, useAuthApi } from '../../../../../setup/authentication/requests';
 
 
 function LoginForm() {
+  
+  const authApi = useAuthApi();
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,7 +27,7 @@ function LoginForm() {
 
     const credentials = {email, password};
 
-    login(credentials).catch(err => console.error(err.response));;
+    authApi.login(credentials).catch(err => console.error(err.response));
   };
 
   return (

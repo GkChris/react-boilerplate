@@ -4,17 +4,18 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppRouter from './setup/router';
 import { ReqInterceptor, ResInterceptor } from './helpers/interceptor';
-import { InitilizeSessionStorage } from './helpers/initializeAppData';
+import { AuthConfigProvider } from './setup/context/authConfig'; // Update import
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 ReqInterceptor();
 ResInterceptor();
-InitilizeSessionStorage()
 
 root.render(
   <React.StrictMode>
-    <AppRouter />
+    <AuthConfigProvider> {/* Wrap with the AuthConfigProvider */}
+      <AppRouter />
+    </AuthConfigProvider>
   </React.StrictMode>
 );
 

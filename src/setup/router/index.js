@@ -9,7 +9,10 @@ import Register from "../../pages/auth/register";
 import Protected_Page from "../../pages/protectedPage";
 import Landing from "../../pages/landing";
 
+
 const AppRouter = () => {
+
+    
     return (
         <Router>
             <Routes>

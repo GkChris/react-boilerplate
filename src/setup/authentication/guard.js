@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { verify } from "./requests";
+import { useAuthApi } from "./requests";
 
 export const Guard = ({ children }) => {
+
+    const authApi = useAuthApi();
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [isUnauthorized, setIsUnauthorized] = useState(false);
@@ -9,7 +12,7 @@ export const Guard = ({ children }) => {
     useEffect(() => {
         const runVerify = async () => {
             try {
-                const response = await verify();
+                const response = await authApi.verify();
                 if (response?.data?.error) {
                     setIsUnauthorized(true);
                 }
