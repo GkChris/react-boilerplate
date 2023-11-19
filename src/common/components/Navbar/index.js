@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <nav>
-		<div className="brand" onClick={() => brand_click_action()}>Your Brand Name</div>
+		<div className="brand" onClick={() => brand_click_action()}>React boilerplate</div>
 		<div className="nav-buttons">
 			{isLogged ? (
 				<button onClick={() => logout_user()}>Logout</button>
