@@ -80,7 +80,12 @@ function RegisterForm() {
 
     const payload = {username, email, password, firstname, lastname, phone, phone_code, password};
 
-    authApi.register(payload).catch(err => console.error(err.response));
+    authApi.register(payload)
+      .then((res) => {
+        const code = res.data?.code; 
+        if ( code === 200 ) window.location.assign('/');
+      })
+      .catch(err => console.error(err.response));
   };
 
   return (

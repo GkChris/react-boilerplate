@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthApi } from "./requests";
 
-export const Guard = ({ children }) => {
+export const Guard = ({ children }, allowGuests) => {
 
     const authApi = useAuthApi();
 
@@ -27,7 +27,7 @@ export const Guard = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        if ( isUnauthorized ) window.location.assign('/register');
+        if ( isUnauthorized && !allowGuests) window.location.assign('/register');
     },[isUnauthorized])
 
     if (loading) return <></>
@@ -38,6 +38,6 @@ export const Guard = ({ children }) => {
     }
 
     // Render the child component (Page) when the API call is successful and no error is found
-    if ( !loading && !isUnauthorized ) return <>{children}</>;
+    if ( (!loading && !isUnauthorized) || allowGuests ) return <>{children}</>;
 };
 

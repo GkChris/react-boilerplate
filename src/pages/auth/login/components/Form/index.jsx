@@ -27,7 +27,12 @@ function LoginForm() {
 
     const credentials = {email, password};
 
-    authApi.login(credentials).catch(err => console.error(err.response));
+    authApi.login(credentials)
+      .then((res) => {
+        const code = res.data?.code; 
+        if ( code === 200 ) window.location.assign('/');
+      })
+      .catch(err => console.error(err.response));
   };
 
   return (
