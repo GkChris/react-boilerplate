@@ -19,7 +19,7 @@ const AppRouter = () => {
     
     return (
         <Page>
-            <Guard allowGuests={true}><Navbar /></Guard>
+            <Navbar />
             <Router>
                 <Routes>
                     { /* ROOT */ }
