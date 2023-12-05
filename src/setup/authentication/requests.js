@@ -51,7 +51,8 @@ export const useAuthApi = () => {
     const verify = () => {
         return new Promise((resolve, reject) => {
             const url = `${backendURI}/auth/verify`;
-            axios.get(url)
+            const options = { withCredentials: true }
+            axios.get(url, options)
                 .then((res) => resolve(res))
                 .catch((err) => reject(err))
         })
