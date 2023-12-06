@@ -1,14 +1,14 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import BrowserDatabaseKeys from '../config/browserDatabaseKeys';
 
 
 export const ReqInterceptor = () => {
     axios.interceptors.request.use((req) => {
-        const authToken = Cookies.get('authorization');
-        if (authToken) {
-            req.headers.authorization = authToken;
-        }
+        // const authToken = Cookies.get('authorization');
+        // if (authToken) {
+        //     req.headers.authorization = authToken;
+        // }
         return req;
     });
 };

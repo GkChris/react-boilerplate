@@ -4,13 +4,13 @@ import browserDatabaseKeys from '../../../config/browserDatabaseKeys'
 import { useAuthApi } from '../../../setup/authentication/requests';
 import './style.css';
 
-const authenticationCookieKey = browserDatabaseKeys?.cookies?.authorization;
+const authenticationCookieChecker = browserDatabaseKeys?.cookies?.authorization;
 
 
 const Navbar = () => {
 
     const authApiCalls = useAuthApi();
-    const isLogged = Cookies.get(authenticationCookieKey);
+    const isLogged = Cookies.get(authenticationCookieChecker);
 
 
     const brand_click_action = () => {

@@ -7,7 +7,7 @@ const BrowserDatabaseKeys = {
     },
     cookies: {
         myKey: "myKey",
-        authorization: "authorization",
+        authorization: "isLogged",
     },
 }
 

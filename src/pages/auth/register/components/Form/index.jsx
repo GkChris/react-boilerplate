@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { register, useAuthApi } from '../../../../../setup/authentication/requests';
+import { useNavigate } from 'react-router-dom';
+import { FormWrapper } from './index.css';
 
 function RegisterForm() {
+
+  const navigate = useNavigate();
 
   const authApi = useAuthApi();
 
@@ -89,98 +93,103 @@ function RegisterForm() {
   };
 
   return (
-    <Form id="register-form" onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicUsername">
-        <Form.Label>Username *</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter username"
-          value={username}
-          onChange={handleUsernameChange}
-          required
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address *</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicfirstname">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter first name"
-          value={firstname}
-          onChange={handlefirstnameChange}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasiclastname">
-        <Form.Label>Last Name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter last name"
-          value={lastname}
-          onChange={handlelastnameChange}
-        />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPhone">
-        <Form.Label>Phone</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter phone number"
-          value={phone}
-          onChange={handlePhoneChange}
-        />
-      </Form.Group>
-
-      {phone && (
-        <Form.Group className="mb-3" controlId="formBasicPhone_code">
-          <Form.Label>Phone Code *</Form.Label>
+    <FormWrapper>
+      <Form id="register-form" onSubmit={handleSubmit} className="d-grid justify-content-center">
+        <Form.Group className="mb-3" controlId="formBasicUsername">
+          <Form.Label>Username *</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter phone code (Example: 30)"
-            value={phone_code}
-            onChange={handlePhone_codeChange}
-            required={phone ? true : false}
+            placeholder="Enter username"
+            value={username}
+            onChange={handleUsernameChange}
+            required
           />
         </Form.Group>
-      )}
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password *</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address *</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-        <Form.Label>Confirm Password *</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Confirm password"
-          value={confirmPassword}
-          onChange={handleConfirmPasswordChange}
-          required
-        />
-      </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicfirstname">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter first name"
+            value={firstname}
+            onChange={handlefirstnameChange}
+          />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+        <Form.Group className="mb-3" controlId="formBasiclastname">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter last name"
+            value={lastname}
+            onChange={handlelastnameChange}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPhone">
+          <Form.Label>Phone</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter phone number"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+        </Form.Group>
+
+        {phone && (
+          <Form.Group className="mb-3" controlId="formBasicPhone_code">
+            <Form.Label>Phone Code *</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter phone code (Example: 30)"
+              value={phone_code}
+              onChange={handlePhone_codeChange}
+              required={phone ? true : false}
+            />
+          </Form.Group>
+        )}
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password *</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+          <Form.Label>Confirm Password *</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            required
+          />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+      <p onClick={() => navigate('/login')} style={{marginTop: "2rem", marginBottom: "0", paddingBottom: "0", fontWeight: "200", cursor: "pointer"}}>
+            Already having an account? Login now.
+      </p>
+    </FormWrapper>
   );
 }
 
