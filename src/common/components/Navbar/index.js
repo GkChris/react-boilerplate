@@ -5,12 +5,15 @@ import { useAuthApi } from '../../../setup/authentication/requests';
 import './style.css';
 
 const authenticationCookieChecker = browserDatabaseKeys?.cookies?.authorization;
+const authenticatedUserToken = browserDatabaseKeys?.sessionStorage?.user;
 
 
 const Navbar = () => {
 
     const authApiCalls = useAuthApi();
     const isLogged = Cookies.get(authenticationCookieChecker);
+
+    if ( !isLogged ) sessionStorage.setItem(authenticatedUserToken, null);
 
 
     const brand_click_action = () => {
