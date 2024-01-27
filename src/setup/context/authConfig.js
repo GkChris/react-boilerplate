@@ -13,7 +13,12 @@ export const useAuthConfig = () => {
 };
 
 export const AuthConfigProvider = ({ children }) => {
-  const [authConfigValues, setAuthConfigValues] = useState({});
+
+  const realmId_saved = sessionStorage.getItem("realmId");
+  const clientId_saved = sessionStorage.getItem("clientId")
+  const user_roleId_saved = sessionStorage.getItem("user_roleId")
+
+  const [authConfigValues, setAuthConfigValues] = useState({ realmId: realmId_saved, clientId: clientId_saved, user_roleId: user_roleId_saved });
 
   const fetchAuthServerRelatedIds = async () => {
     try {
@@ -22,6 +27,9 @@ export const AuthConfigProvider = ({ children }) => {
       );
 
       const { realmId, clientId, roleId } = response.data?.data;
+      sessionStorage.setItem("realmId", realmId);
+      sessionStorage.setItem("clientId", clientId);
+      sessionStorage.setItem("user_roleId", roleId);
 
       setAuthConfigValues({ realmId, clientId, user_roleId: roleId });
     } catch (error) {
@@ -29,9 +37,14 @@ export const AuthConfigProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    fetchAuthServerRelatedIds();
+  
+  useEffect(() => {;
+    if ( !realmId_saved || !clientId_saved || !user_roleId_saved ) {
+      fetchAuthServerRelatedIds();
+    }
   }, []);
+
+  if ( !authConfigValues ) return <></>
 
   return (
     <AuthConfigContext.Provider value={authConfigValues}>
